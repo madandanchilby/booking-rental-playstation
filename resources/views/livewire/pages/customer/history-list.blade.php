@@ -145,11 +145,20 @@
 
                 <p class="mb-3">
                     <strong>Status:</strong>
-                    {{ $booking->status }}
+
+                    @if($booking->status == 'confirmed')
+                        <span class="badge bg-success">Dikonfirmasi</span>
+                    @elseif($booking->status == 'pending')
+                        <span class="badge bg-warning text-dark">Pending</span>
+                    @else
+                        <span class="badge bg-secondary">
+                            {{ $booking->status }}
+                        </span>
+                    @endif
                 </p>
 
                 <div class="dropdown">
-                    <button class="btn btn-sm btn-primary dropdown-toggle w-100"
+                    <button class="btn btn-primary dropdown-toggle w-100 py-2"
                             type="button"
                             data-bs-toggle="dropdown">
                         Aksi
