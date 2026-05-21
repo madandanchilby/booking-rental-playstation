@@ -1,0 +1,42 @@
+{
+  "menu_admin": [
+    {
+      "name": "Master Data",
+      "icon": "menu-icon tf-icons bx bx-layout",
+      "slug": "admin.master-data",
+      "submenu": [
+        {
+          "url": "admin/master-data/komputer",
+          "name": "PlayStation",
+          "slug": "admin.master-data.computer"
+        }
+      ]
+    },
+    {
+      "url": "admin/booking/walk-in",
+      "name": "Booking Walk-in",
+      "icon": "menu-icon tf-icons bx bx-walk",
+      "slug": "admin.booking.walkin"
+    },
+    {
+      "url": "admin",
+      "name": "Riwayat",
+      "icon": "menu-icon tf-icons bx bx-history",
+      "slug": "admin.history"
+    }
+  ],
+  "menu_customer": [
+    {
+      "url": "/",
+      "name": "Booking",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "customer.booking"
+    },
+    {
+      "url": "histories",
+      "name": "Riwayat",
+      "icon": "menu-icon tf-icons bx bx-history",
+      "slug": "customer.history"
+    }
+  ]
+}
