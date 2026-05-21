@@ -90,21 +90,34 @@
                             } elseif ($isTooSoon) {
                                 $btnClass = 'btn-outline-warning disabled';
                             } else {
-                                $btnClass = 'btn-outline-secondary disabled';
+                                $btnClass = 'btn-outline-secondary';
                             }
                         @endphp
                         <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-                            <button type="button"
-                                class="btn w-100 border px-3 py-3 {{ $btnClass }}"
+                        <button type="button"
+                            class="btn w-100 border px-3 py-3 {{ $btnClass }}"
+
+                            @if(!$slot['is_available'])
+                                onclick="alert('Slot ini sudah dibooking oleh customer lain. Silakan pilih jadwal lain.')"
+                            @else
                                 wire:click="toggleTimeSlot('{{ $slot['value'] }}')"
-                                @disabled(!$slot['is_available'])
-                                @if ($isTooSoon) title="Tidak bisa booking, kurang dari 2 jam dari sekarang" @endif>
-                                <span class="fw-semibold d-block text-center">{{ $slot['label'] }}</span>
-                                @if ($isTooSoon)
-                                    <small class="d-block text-center" style="font-size: 0.65rem;">< 2 jam</small>
-                                @endif
-                            </button>
-                        </div>
+                            @endif
+
+                            @if ($isTooSoon)
+                                title="Tidak bisa booking, kurang dari 2 jam dari sekarang"
+                            @endif
+                        >
+                            <span class="fw-semibold d-block text-center">
+                                {{ $slot['label'] }}
+                            </span>
+
+                            @if ($isTooSoon)
+                                <small class="d-block text-center" style="font-size: 0.65rem;">
+                                    < 2 jam
+                                </small>
+                            @endif
+                        </button>
+                    </div>
                     @empty
                         <div class="col-12">
                             <div class="alert alert-info mb-0">
