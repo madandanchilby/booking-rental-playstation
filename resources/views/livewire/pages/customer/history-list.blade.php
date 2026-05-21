@@ -11,7 +11,7 @@
     <div class="card mb-3">
         <h5 class="card-header">Booking Yang Berjalan</h5>
         <div class="table-responsive">
-        <table class="table table-sm">
+        <table class="table table-sm text-nowrap">
             <thead>
                 <tr>
                     <th>ID Booking</th>
@@ -65,7 +65,7 @@
                                     <span class="badge bg-secondary">{{ $booking->payment_status ?? '-' }}</span>
                                 @endif
                             </td>
-                            <td>
+                            <td style="min-width: 80px;">
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -118,7 +118,7 @@
     <div class="card">
         <h5 class="card-header">Booking Yang Telah Selesai</h5>
         <div class="table-responsive">
-        <table class="table table-sm">
+        <table class="table table-sm text-nowrap">
             <thead>
                 <tr>
                     <th>ID Booking</th>
