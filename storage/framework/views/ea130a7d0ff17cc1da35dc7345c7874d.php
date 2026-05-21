@@ -53,9 +53,9 @@
     <div class="layout-wrapper layout-content-navbar <?php echo e($isMenu ? '' : 'layout-without-menu'); ?>">
         <div class="layout-container">
             
-            <?php if($isMenu): ?>
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isMenu): ?>
                 <?php echo $__env->make('layouts/sections/menu/menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <?php endif; ?>
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
 
             <!-- Layout page -->
@@ -67,11 +67,16 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('components.navbar', []);
 
-$__html = app('livewire')->mount($__name, $__params, 'lw-4279031837-0', $__slots ?? [], get_defined_vars());
+$__key = null;
+
+$__key ??= \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::generateKey('lw-4279031837-0', $__key);
+
+$__html = app('livewire')->mount($__name, $__params, $__key);
 
 echo $__html;
 
 unset($__html);
+unset($__key);
 unset($__name);
 unset($__params);
 unset($__split);
@@ -84,11 +89,11 @@ if (isset($__slots)) unset($__slots);
                 <div class="content-wrapper">
 
                     <!-- Content -->
-                    <?php if($isFlex): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isFlex): ?>
                         <div class="<?php echo e($container); ?> d-flex align-items-stretch flex-grow-1 p-0">
                         <?php else: ?>
                             <div class="<?php echo e($container); ?> flex-grow-1 container-p-y">
-                    <?php endif; ?>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                     <?php echo e($slot); ?>
 
@@ -97,9 +102,9 @@ if (isset($__slots)) unset($__slots);
                 <!-- / Content -->
 
                 <!-- Footer -->
-                <?php if($isFooter): ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isFooter): ?>
                     <?php echo $__env->make('layouts/sections/footer/footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php endif; ?>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 <!-- / Footer -->
                 <div class="content-backdrop fade"></div>
             </div>
@@ -108,10 +113,10 @@ if (isset($__slots)) unset($__slots);
         <!-- / Layout page -->
     </div>
 
-    <?php if($isMenu): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isMenu): ?>
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     <!-- Drag Target Area To SlideIn Menu On Small Screens -->
     <div class="drag-target"></div>
     </div>

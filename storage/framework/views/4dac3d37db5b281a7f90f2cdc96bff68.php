@@ -12,7 +12,6 @@
     <div class="card mb-3">
         <h5 class="card-header">Booking Yang Berjalan</h5>
         
-        <div class="d-none d-md-block">
             <div class="table-responsive">
                 <table class="table table-sm">
             <thead>
@@ -119,97 +118,11 @@
             
         </div>
     </div>
-
-    
-<div class="d-block d-md-none">
-
-    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $current_bookings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $booking): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-        <div class="card mb-3 shadow-sm">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-
-                <h6 class="fw-bold mb-2">
-                    Booking #<?php echo e(substr($booking->id, 0, 8)); ?>
-
-                </h6>
-                 <span class="badge bg-success">
-                        <?php echo e($booking->status); ?>
-
-                    </span>
-                </div>
-
-                <p class="mb-1">
-                    <strong>PlayStation:</strong>
-                    <?php echo e($booking->computer->computer_number ?? '-'); ?>
-
-                </p>
-
-                <p class="mb-1">
-                    <strong>Tanggal:</strong><br>
-                    <?php echo e($booking->booking_start_date->format('d M Y')); ?>
-
-                </p>
-
-                <p class="mb-1">
-                    <strong>Jam:</strong><br>
-                    <?php echo e($booking->booking_start_date->format('H:i')); ?>
-
-                    -
-                    <?php echo e($booking->booking_end_date->format('H:i')); ?>
-
-                </p>
-
-                <p class="mb-3">
-                    <strong>Total:</strong>
-                    Rp <?php echo e(number_format($booking->total_booking_fee, 0, ',', '.')); ?>
-
-                </p>
-
-                <div class="dropdown">
-                    <button class="btn btn-primary btn-sm dropdown-toggle w-100"
-                            type="button"
-                            data-bs-toggle="dropdown">
-                        Aksi
-                    </button>
-
-                    <ul class="dropdown-menu w-100">
-
-                        <li>
-                            <button class="dropdown-item" disabled>
-                                Lihat Invoice
-                            </button>
-                        </li>
-
-                        <li>
-                            <button class="dropdown-item" disabled>
-                                Reschedule
-                            </button>
-                        </li>
-
-                        <li>
-                            <button class="dropdown-item text-danger"
-                                    type="button"
-                                    wire:click="cancelBooking('<?php echo e($booking->id); ?>')">
-                                Batalkan Booking
-                            </button>
-                        </li>
-
-                    </ul>
-                </div>
-
-
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-        <div class="alert alert-info">
-            Tidak ada booking berjalan.
-        </div>
-    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
-</div>
+   
 
     <div class="card">
         <h5 class="card-header">Booking Yang Telah Selesai</h5>
         
-        <div class="d-none d-md-block">
             <div class="table-responsive">
                 <table class="table table-sm">
             <thead>

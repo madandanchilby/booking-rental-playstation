@@ -11,7 +11,6 @@
     <div class="card mb-3">
         <h5 class="card-header">Booking Yang Berjalan</h5>
         {{-- DESKTOP TABLE --}}
-        <div class="d-none d-md-block">
             <div class="table-responsive">
                 <table class="table table-sm">
             <thead>
@@ -116,90 +115,11 @@
             {{-- {{ $current_bookings->links() }} --}}
         </div>
     </div>
-
-    {{-- MOBILE CARD --}}
-<div class="d-block d-md-none">
-
-    @forelse ($current_bookings as $booking)
-        <div class="card mb-3 shadow-sm">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-
-                <h6 class="fw-bold mb-2">
-                    Booking #{{ substr($booking->id, 0, 8) }}
-                </h6>
-                 <span class="badge bg-success">
-                        {{ $booking->status }}
-                    </span>
-                </div>
-
-                <p class="mb-1">
-                    <strong>PlayStation:</strong>
-                    {{ $booking->computer->computer_number ?? '-' }}
-                </p>
-
-                <p class="mb-1">
-                    <strong>Tanggal:</strong><br>
-                    {{ $booking->booking_start_date->format('d M Y') }}
-                </p>
-
-                <p class="mb-1">
-                    <strong>Jam:</strong><br>
-                    {{ $booking->booking_start_date->format('H:i') }}
-                    -
-                    {{ $booking->booking_end_date->format('H:i') }}
-                </p>
-
-                <p class="mb-3">
-                    <strong>Total:</strong>
-                    Rp {{ number_format($booking->total_booking_fee, 0, ',', '.') }}
-                </p>
-
-                <div class="dropdown">
-                    <button class="btn btn-primary btn-sm dropdown-toggle w-100"
-                            type="button"
-                            data-bs-toggle="dropdown">
-                        Aksi
-                    </button>
-
-                    <ul class="dropdown-menu w-100">
-
-                        <li>
-                            <button class="dropdown-item" disabled>
-                                Lihat Invoice
-                            </button>
-                        </li>
-
-                        <li>
-                            <button class="dropdown-item" disabled>
-                                Reschedule
-                            </button>
-                        </li>
-
-                        <li>
-                            <button class="dropdown-item text-danger"
-                                    type="button"
-                                    wire:click="cancelBooking('{{ $booking->id }}')">
-                                Batalkan Booking
-                            </button>
-                        </li>
-
-                    </ul>
-                </div>
-
-
-    @empty
-        <div class="alert alert-info">
-            Tidak ada booking berjalan.
-        </div>
-    @endforelse
-
-</div>
+   
 
     <div class="card">
         <h5 class="card-header">Booking Yang Telah Selesai</h5>
         {{-- DESKTOP TABLE --}}
-        <div class="d-none d-md-block">
             <div class="table-responsive">
                 <table class="table table-sm">
             <thead>
