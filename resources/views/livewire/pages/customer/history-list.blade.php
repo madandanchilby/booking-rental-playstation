@@ -10,9 +10,9 @@
 
     <div class="card mb-3">
         <h5 class="card-header">Booking Yang Berjalan</h5>
-        <div class="table-responsive text-nowrap">
-            <table class="table">
-                <thead>
+        <div class="table-responsive">
+        <table class="table table-sm">
+            <thead>
                 <tr>
                     <th>ID Booking</th>
                     <th>PlayStation</th>
@@ -22,7 +22,7 @@
                     <th>Bayar</th>
                     <th>Aksi</th>
                 </tr>
-                </thead>
+            </thead>
                 
                 <tbody class="table-border-bottom-0">
                     @forelse ($current_bookings as $booking)
@@ -117,18 +117,19 @@
 
     <div class="card">
         <h5 class="card-header">Booking Yang Telah Selesai</h5>
-        <div class="table-responsive text-nowrap">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID Booking</th>
-                        <th>PlayStation</th>
-                        <th>Waktu</th>
-                        <th>Total Harga</th>
-                        <th>Bayar</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+        <div class="table-responsive">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>ID Booking</th>
+                    <th>PlayStation</th>
+                    <th>Waktu</th>
+                    <th>Total Harga</th>
+                    <th>Status</th>
+                    <th>Bayar</th>
+                    <th>Aksi</th>
+            </tr>
+        </thead>
                 <tbody class="table-border-bottom-0">
                     @forelse ($completed_bookings as $booking)
                         <tr>

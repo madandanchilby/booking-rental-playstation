@@ -93,14 +93,14 @@
                                 $btnClass = 'btn-outline-secondary';
                             }
                         @endphp
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                       <div class="col-6 col-md-4 col-lg-3 col-xl-2">
                         <button type="button"
                             class="btn w-100 border px-3 py-3 {{ $btnClass }}"
 
-                            @if(!$slot['is_available'])
-                                onclick="alert('Slot ini sudah dibooking oleh customer lain. Silakan pilih jadwal lain.')"
-                            @else
+                            @if($slot['is_available'])
                                 wire:click="toggleTimeSlot('{{ $slot['value'] }}')"
+                            @else
+                                onclick="alert('Slot ini sudah dibooking oleh customer lain. Silakan pilih jadwal lain.'); return false;"
                             @endif
 
                             @if ($isTooSoon)
@@ -117,6 +117,7 @@
                                 </small>
                             @endif
                         </button>
+</div>
                     </div>
                     @empty
                         <div class="col-12">
