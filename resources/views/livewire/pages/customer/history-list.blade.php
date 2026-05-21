@@ -10,8 +10,10 @@
 
     <div class="card mb-3">
         <h5 class="card-header">Booking Yang Berjalan</h5>
-        <div class="table-responsive">
-        <table class="table table-sm text-nowrap">
+        {{-- DESKTOP TABLE --}}
+        <div class="d-none d-md-block">
+            <div class="table-responsive">
+                <table class="table table-sm">
             <thead>
                 <tr>
                     <th>ID Booking</th>
@@ -114,11 +116,89 @@
             {{-- {{ $current_bookings->links() }} --}}
         </div>
     </div>
+    
+    {{-- MOBILE CARD --}}
+<div class="d-block d-md-none">
+
+    @forelse ($current_bookings as $booking)
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+
+                <h6 class="fw-bold mb-2">
+                    Booking #{{ $booking->id }}
+                </h6>
+
+                <p class="mb-1">
+                    <strong>PlayStation:</strong>
+                    {{ $booking->computer->computer_number ?? '-' }}
+                </p>
+
+                <p class="mb-1">
+                    <strong>Waktu:</strong>
+                    {{ $booking->booking_start_date->format('d M Y H:i') }}
+                </p>
+
+                <p class="mb-1">
+                    <strong>Total:</strong>
+                    Rp {{ number_format($booking->total_booking_fee, 0, ',', '.') }}
+                </p>
+
+                <p class="mb-3">
+                    <strong>Status:</strong>
+                    {{ $booking->status }}
+                </p>
+
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-primary dropdown-toggle w-100"
+                            type="button"
+                            data-bs-toggle="dropdown">
+                        Aksi
+                    </button>
+
+                    <ul class="dropdown-menu w-100">
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="{{ route('customer.invoice', $booking->id) }}">
+                                Lihat Invoice
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="{{ route('customer.reschedule', $booking->id) }}">
+                                Reschedule
+                            </a>
+                        </li>
+
+                        <li>
+                            <button class="dropdown-item text-danger"
+                                    type="button"
+                                    wire:click="cancelBooking({{ $booking->id }})">
+                                Batalkan Booking
+                            </button>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    @empty
+        <div class="alert alert-info">
+            Tidak ada booking berjalan.
+        </div>
+    @endforelse
+
+</div>
 
     <div class="card">
         <h5 class="card-header">Booking Yang Telah Selesai</h5>
-        <div class="table-responsive">
-        <table class="table table-sm text-nowrap">
+        {{-- DESKTOP TABLE --}}
+        <div class="d-none d-md-block">
+            <div class="table-responsive">
+                <table class="table table-sm">
             <thead>
                 <tr>
                     <th>ID Booking</th>
