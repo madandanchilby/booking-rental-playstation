@@ -16,11 +16,11 @@
                         <select wire:model.live="form.computer_id" name="form.computer_id" id="computer_id"
                             class="form-select">
                             <option value="">Pilih PlayStation</option>
-                            <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $available_computers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $computer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $available_computers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $computer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($computer->id); ?>">Komputer <?php echo e($computer->computer_number); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </select>
-                        <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['form.computer_id'];
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['form.computer_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -29,14 +29,14 @@ $message = $__bag->first($__errorArgs[0]); ?>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
 
                     <div class="col-md-6">
                         <label for="booking_date" class="col-form-label">Tanggal Booking</label>
                         <input wire:model.live="form.booking_date" class="form-control" type="date" id="booking_date"
                             min="<?php echo e($minDate); ?>" value="<?php echo e($minDate); ?>" />
-                        <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['form.booking_date'];
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['form.booking_date'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -45,7 +45,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
 
                     <div class="col-12">
@@ -53,20 +53,20 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             <div class="fw-semibold mb-1">Pilihan Anda</div>
                             <div class="small text-muted mb-2">
                                 Durasi terpilih: <?php echo e($selectedDuration); ?> jam
-                                <!--[if BLOCK]><![endif]--><?php if($total_price > 0): ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($total_price > 0): ?>
                                     &bull; Total: <strong>Rp. <?php echo e(number_format($total_price, 0, ',', '.')); ?></strong>
-                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
 
-                            <!--[if BLOCK]><![endif]--><?php if($selected_slot_labels->isNotEmpty()): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($selected_slot_labels->isNotEmpty()): ?>
                                 <div class="d-flex flex-wrap gap-2">
-                                    <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $selected_slot_labels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slotLabel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $selected_slot_labels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slotLabel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <span class="badge bg-primary"><?php echo e($slotLabel); ?></span>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </div>
                             <?php else: ?>
                                 <span class="text-muted small">Belum memilih timeslot.</span>
-                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                 </div>
 
                 <div class="row g-2">
-                    <!--[if BLOCK]><![endif]--><?php $__empty_1 = true; $__currentLoopData = $time_slots; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slot): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $time_slots; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slot): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <?php
                             $isSelected = in_array($slot['value'], $this->form->booking_times, true);
                             $isTooSoon = $slot['is_too_soon'] ?? false;
@@ -104,31 +104,46 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             } elseif ($isTooSoon) {
                                 $btnClass = 'btn-outline-warning disabled';
                             } else {
-                                $btnClass = 'btn-outline-secondary disabled';
+                                $btnClass = 'btn-outline-secondary';
                             }
                         ?>
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-                            <button type="button"
-                                class="btn w-100 border px-3 py-3 <?php echo e($btnClass); ?>"
+                       <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <button type="button"
+                            class="btn w-100 border px-3 py-3 <?php echo e($btnClass); ?>"
+
+                            <?php if($slot['is_available']): ?>
                                 wire:click="toggleTimeSlot('<?php echo e($slot['value']); ?>')"
-                                <?php if(!$slot['is_available']): echo 'disabled'; endif; ?>
-                                <?php if($isTooSoon): ?> title="Tidak bisa booking, kurang dari 2 jam dari sekarang" <?php endif; ?>>
-                                <span class="fw-semibold d-block text-center"><?php echo e($slot['label']); ?></span>
-                                <!--[if BLOCK]><![endif]--><?php if($isTooSoon): ?>
-                                    <small class="d-block text-center" style="font-size: 0.65rem;">< 2 jam</small>
-                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
-                            </button>
-                        </div>
+                            <?php else: ?>
+                                onclick="alert('Slot ini sudah dibooking oleh customer lain. Silakan pilih jadwal lain.'); return false;"
+                            <?php endif; ?>
+
+                            <?php if($isTooSoon): ?>
+                                title="Tidak bisa booking, kurang dari 2 jam dari sekarang"
+                            <?php endif; ?>
+                        >
+                            <span class="fw-semibold d-block text-center">
+                                <?php echo e($slot['label']); ?>
+
+                            </span>
+
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isTooSoon): ?>
+                                <small class="d-block text-center" style="font-size: 0.65rem;">
+                                    < 2 jam
+                                </small>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        </button>
+</div>
+                    </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <div class="col-12">
                             <div class="alert alert-info mb-0">
                                 Pilih PlayStation dan tanggal terlebih dahulu untuk melihat timeslot yang tersedia.
                             </div>
                         </div>
-                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
-                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['form.booking_times'];
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['form.booking_times'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -137,8 +152,8 @@ $message = $__bag->first($__errorArgs[0]); ?>
                 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
-                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['form.booking_times.*'];
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['form.booking_times.*'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -147,14 +162,14 @@ $message = $__bag->first($__errorArgs[0]); ?>
                 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
             <div class="card-footer d-flex justify-content-between align-items-center">
                 <div>
-                    <!--[if BLOCK]><![endif]--><?php if($total_price > 0): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($total_price > 0): ?>
                         <span class="fw-semibold">Total Pembayaran: Rp. <?php echo e(number_format($total_price, 0, ',', '.')); ?></span>
-                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
                 <button type="submit" class="btn btn-primary" <?php if($selectedDuration === 0): echo 'disabled'; endif; ?>>
                     <i class="bx bx-credit-card me-1"></i> Lanjut ke Pembayaran

@@ -123,10 +123,15 @@
     @forelse ($current_bookings as $booking)
         <div class="card mb-3 shadow-sm">
             <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
 
                 <h6 class="fw-bold mb-2">
-                    Booking #{{ $booking->id }}
+                    Booking #{{ substr($booking->id, 0, 8) }}
                 </h6>
+                 <span class="badge bg-success">
+                        {{ $booking->status }}
+                    </span>
+                </div>
 
                 <p class="mb-1">
                     <strong>PlayStation:</strong>
@@ -134,31 +139,24 @@
                 </p>
 
                 <p class="mb-1">
-                    <strong>Waktu:</strong>
-                    {{ $booking->booking_start_date->format('d M Y H:i') }}
+                    <strong>Tanggal:</strong><br>
+                    {{ $booking->booking_start_date->format('d M Y') }}
                 </p>
 
                 <p class="mb-1">
+                    <strong>Jam:</strong><br>
+                    {{ $booking->booking_start_date->format('H:i') }}
+                    -
+                    {{ $booking->booking_end_date->format('H:i') }}
+                </p>
+
+                <p class="mb-3">
                     <strong>Total:</strong>
                     Rp {{ number_format($booking->total_booking_fee, 0, ',', '.') }}
                 </p>
 
-                <p class="mb-3">
-                    <strong>Status:</strong>
-
-                    @if($booking->status == 'confirmed')
-                        <span class="badge bg-success">Dikonfirmasi</span>
-                    @elseif($booking->status == 'pending')
-                        <span class="badge bg-warning text-dark">Pending</span>
-                    @else
-                        <span class="badge bg-secondary">
-                            {{ $booking->status }}
-                        </span>
-                    @endif
-                </p>
-
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle w-100 py-2"
+                    <button class="btn btn-primary btn-sm dropdown-toggle w-100"
                             type="button"
                             data-bs-toggle="dropdown">
                         Aksi
@@ -167,23 +165,21 @@
                     <ul class="dropdown-menu w-100">
 
                         <li>
-                            <a class="dropdown-item"
-                            href="#">
+                            <button class="dropdown-item" disabled>
                                 Lihat Invoice
-                            </a>
+                            </button>
                         </li>
 
                         <li>
-                            <a class="dropdown-item"
-                               href="#">
+                            <button class="dropdown-item" disabled>
                                 Reschedule
-                            </a>
+                            </button>
                         </li>
 
                         <li>
                             <button class="dropdown-item text-danger"
                                     type="button"
-                                    wire:click="cancelBooking({{ $booking->id }})">
+                                    wire:click="cancelBooking('{{ $booking->id }}')">
                                 Batalkan Booking
                             </button>
                         </li>
@@ -191,8 +187,6 @@
                     </ul>
                 </div>
 
-            </div>
-        </div>
 
     @empty
         <div class="alert alert-info">
