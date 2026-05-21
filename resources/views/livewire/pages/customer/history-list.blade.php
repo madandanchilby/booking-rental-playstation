@@ -116,7 +116,7 @@
             {{-- {{ $current_bookings->links() }} --}}
         </div>
     </div>
-    
+
     {{-- MOBILE CARD --}}
 <div class="d-block d-md-none">
 
@@ -159,14 +159,14 @@
 
                         <li>
                             <a class="dropdown-item"
-                               href="{{ route('customer.invoice', $booking->id) }}">
+                            href="#">
                                 Lihat Invoice
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item"
-                               href="{{ route('customer.reschedule', $booking->id) }}">
+                               href="#">
                                 Reschedule
                             </a>
                         </li>
