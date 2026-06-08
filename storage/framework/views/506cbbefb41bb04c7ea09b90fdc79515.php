@@ -4,9 +4,12 @@
     <div class="app-brand demo">
         <a href="<?php echo e(url('/')); ?>" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="<?php echo e(asset('/assets/img/ps-logo.png')); ?>" alt="Logo" style="width: 32px; height: 32px; object-fit: contain;">
             </span>
-            <span class="app-brand-text demo menu-text fw-bold fs-5 ms-2"><?php echo e(config('variables.app_name')); ?></span>
+            <span class="app-brand-text demo menu-text fw-bold text-uppercase"
+             style="font-size: 15px; letter-spacing: 0.3px; white-space: nowrap; color:#5d5fef; ">
+             <?php echo e(config('variables.app_name')); ?>
+
+</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

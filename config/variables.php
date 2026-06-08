@@ -9,5 +9,5 @@
     "free" => true,
     "description" => "PlayStation Rental System",
     "keyword" => "kasir, cashier",
-    "app_name" => "PlayStation Play Point"
+    "app_name" => "Playstation Play Point"
   ];
