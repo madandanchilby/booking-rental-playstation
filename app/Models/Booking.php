@@ -126,13 +126,11 @@ class Booking extends Model
      * Get customer display name (works for both online & walk-in).
      */
     public function getCustomerDisplayName(): string
-    {
-        if ($this->isWalkIn()) {
-            return $this->customer_name_walkin ?: 'Walk-in';
+        {
+            return $this->customer?->name
+                ?? $this->customer_name_walkin
+                ?? '-';
         }
-
-        return $this->customer?->name ?? '-';
-    }
 
     // ── Scope: active bookings (not cancelled/expired/rescheduled) ──
 

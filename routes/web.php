@@ -20,6 +20,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Pages\Admin\Booking\AdminBookingList;
+use App\Livewire\Pages\Admin\Booking\AdminBookingCreate;
 
 // auth admin routes
 Route::get('admin/auth/register', Register::class)->name('admin.auth.register');
@@ -63,7 +65,10 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
         Route::get('komputer/create', ComputerCreate::class)->name('admin.master-data.computer.create');
         Route::get('komputer/view/{computer}', ComputerView::class)->name('admin.master-data.computer.view');
         Route::get('komputer/edit/{computer}', ComputerEdit::class)->name('admin.master-data.computer.edit');
+        
     });
+    Route::get('/bookings/customer', AdminBookingList::class)->name('admin.booking.customer');
+    Route::get('/bookings/customer/{computer}/create', AdminBookingCreate::class)->name('admin.booking.customer.create');
 
     Route::get('/', AdminHistoryList::class)->name('admin.history');
     Route::get('/booking/walk-in', WalkinBookingCreate::class)->name('admin.booking.walkin');

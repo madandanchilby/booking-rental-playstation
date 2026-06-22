@@ -23,6 +23,12 @@
       "name": "Riwayat",
       "icon": "menu-icon tf-icons bx bx-history",
       "slug": "admin.history"
+    },
+    {
+      "url": "admin/bookings/customer",
+      "name": "Booking Customer",
+      "icon": "menu-icon tf-icons bx bx-calendar-plus",
+      "slug": "admin.booking.customer"
     }
   ],
   "menu_customer": [
@@ -38,5 +44,7 @@
       "icon": "menu-icon tf-icons bx bx-history",
       "slug": "customer.history"
     }
+   
+    
   ]
 }

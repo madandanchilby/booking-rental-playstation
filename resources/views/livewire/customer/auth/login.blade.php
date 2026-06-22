@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col-0 col-md-6">
-            <img src="{{ asset('/assets/img/Internet-Cafe.jpg') }}" alt="Logo" class="w-100 h-100">
+            <img src="{{ asset('/assets/img/rental playstation.png') }}" alt="Logo" class="w-100 h-100">
         </div>
     </div>
 </div>

@@ -115,6 +115,10 @@
                                 <small class="d-block text-center" style="font-size: 0.65rem;">
                                     < 2 jam
                                 </small>
+                            @elseif ($isBooked)
+                                <small class="d-block text-center" style="font-size: 0.65rem;">
+                                    Sudah dibooking
+                                </small>
                             @endif
                         </button>
                     </div>

@@ -47,9 +47,6 @@
                             </td>
                             <td>
                                 {{ $booking->getCustomerDisplayName() }}
-                                @if ($booking->isWalkIn() && $booking->customer_phone_walkin)
-                                    <br><small class="text-muted">{{ $booking->customer_phone_walkin }}</small>
-                                @endif
                             </td>
                             <td>{{ $booking->computer->computer_number ?? '-' }}</td>
                             <td>
@@ -99,7 +96,7 @@
             </table>
         </div>
         <div class="p-2">
-            {{{-- {{ $current_bookings->links() }} --}}
+            {{-- {{ $current_bookings->links() }} --}}
         </div>
     </div>
 

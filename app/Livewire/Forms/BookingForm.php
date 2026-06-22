@@ -65,7 +65,7 @@ class BookingForm extends Form
         $totalFee = $selectedTimes->count() * (int) $computer->booking_price_per_hour;
 
         $bookingIds = [];
-
+        // menangani booking bersamaan
         DB::transaction(function () use ($selectedTimes, $customer, $computer, $orderId, &$bookingIds) {
             foreach ($selectedTimes as $bookingTime) {
                 [$hour] = explode(':', $bookingTime);

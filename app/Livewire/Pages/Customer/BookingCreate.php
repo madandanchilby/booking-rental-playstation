@@ -67,7 +67,7 @@ class BookingCreate extends Component
             return;
         }
 
-        $availableSlots = $this->getTimeSlots()
+        $ilableSlots = $thisava->getTimeSlots()
             ->where('is_available', true)
             ->pluck('value')
             ->all();
